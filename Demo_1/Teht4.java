@@ -16,8 +16,9 @@ public class Teht4
       if ((email.indexOf('@') > 0)
             && (email.indexOf('@') < email.length() - 1)
             && (email.length() - email.replace("@","").length() == 1)
-            && (email.substring(email.indexOf('@') + 1).contains("."))
-            && (email.lastIndexOf('.') != email.length() - 1))
+            && (email.substring(email.indexOf('@') + 1).indexOf('.') > 0)
+            && (email.lastIndexOf('.') != email.length() - 1)
+            && (email.contains("..") == false))
       {
         // Extract the domain from the email address
         String domain = email.substring(email.indexOf('@') + 1);
