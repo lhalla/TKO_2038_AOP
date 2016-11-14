@@ -5,18 +5,13 @@ public class Teht1
 {
   public static void main(String[] args)
   {
-    // Try to create a scanner-object and catch potential exceptions
-    try (Scanner reader = new Scanner(System.in))
-    {      
-      // Ask for and read three strings
-      System.out.println("Please enter the first string.");
-      String str1 = reader.nextLine();
-      
-      System.out.println("Please enter the second string.");
-      String str2 = reader.nextLine();
-      
-      System.out.println("Please enter the third string.");
-      String str3 = reader.nextLine();
+    // Check the number of arguments
+    if (args.length == 3)
+    {
+      // Declare string-objects based on the args
+      String str1 = args[0];
+      String str2 = args[1];
+      String str3 = args[2];
       
       // Determine the shortest string(s) and print the result
       if ((str1.length() < str2.length()) && (str1.length() < str3.length()))
@@ -48,9 +43,9 @@ public class Teht1
         System.out.println("All of the given strings are equally long.");
       }
     }
-    catch (Exception e)
+    else
     {
-      System.out.println("ERROR: Something went wrong! (" + e + ")");
+      System.out.println("ERROR: Invalid number of arguments.");
     }
   }
 }
