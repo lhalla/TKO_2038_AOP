@@ -1,0 +1,9 @@
+// Import the Scanner-class
+import java.util.Scanner;
+
+public class Teht5
+{
+  public static void main(String[] args)
+  {
+    // Create a Scanner object
+    Scanner reader = new Scanner(System.in);
