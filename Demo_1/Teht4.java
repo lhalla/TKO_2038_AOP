@@ -1,5 +1,7 @@
-// Import the Scanner-class
+// Import required classes
 import java.util.Scanner;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 
 public class Teht4
 {
@@ -12,23 +14,21 @@ public class Teht4
       System.out.println("Please enter your email address.");
       String email = reader.nextLine();
       
-      // Check the validity of the entered email address
-      if ((email.indexOf('@') > 0)
-            && (email.indexOf('@') < email.length() - 1)
-            && (email.length() - email.replace("@","").length() == 1)
-            && (email.substring(email.indexOf('@') + 1).indexOf('.') > 0)
-            && (email.lastIndexOf('.') != email.length() - 1)
-            && (email.contains("..") == false))
+      // Define a regex pattern for finding the domain and find the matches with the entered address
+      Pattern SIMPLE_VALID_EMAIL_ADDRESS_PATTERN = Pattern.compile("^([^.@]+\\.)*[^.@]+@(([^.@]+\\.)+[^.@]+)$");
+      Matcher matcher = SIMPLE_VALID_EMAIL_ADDRESS_PATTERN.matcher(email);
+      
+      // Check if the entered address includes a domain and print the result
+      if (matcher.find())
       {
-        // Extract the domain from the email address
-        String domain = email.substring(email.indexOf('@') + 1);
+        // Extract the domain from the address
+        String domain = matcher.group(2);
         
-        // Print the domain of the email address
-        System.out.println(" The domain of the address entered is: " + domain);
+        // Print the domain
+        System.out.println("The domain of the entered address is: " + domain);
       }
       else
       {
-        // Print an error message caused by an invalid email address
         System.out.println("ERROR: The given input is not a valid email address!");
       }
     }
