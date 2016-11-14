@@ -5,7 +5,7 @@ public class Teht1
 {
   public static void main(String[] args)
   {
-    // Try creating a scanner-object and catch potential exceptions
+    // Try to create a scanner-object and catch potential exceptions
     try (Scanner reader = new Scanner(System.in))
     {      
       // Ask for and read three strings

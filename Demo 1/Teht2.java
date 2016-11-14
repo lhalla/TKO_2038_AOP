@@ -5,7 +5,7 @@ public class Teht2
 {
   public static void main(String[] args)
   {
-    // Try creating a scanner-object and catch potential exceptions
+    // Try to create a scanner-object and catch potential exceptions
     try (Scanner reader = new Scanner(System.in))
     {
       // Declare the variable for the year used to calculate age
