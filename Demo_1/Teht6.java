@@ -1,4 +1,4 @@
-// Import the Scanner-class
+// Import required classes
 import java.util.Scanner;
 
 public class Teht6

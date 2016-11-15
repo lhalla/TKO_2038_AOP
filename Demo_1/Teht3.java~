@@ -8,7 +8,7 @@ public class Teht3
   
   public static void main(String[] q)
   {
-    // Create a Random-object
+    // Create a random-object
     Random r = new Random();
     
     // Generate a pseudorandom integer from the interval [0, SATUNNAISMAX)

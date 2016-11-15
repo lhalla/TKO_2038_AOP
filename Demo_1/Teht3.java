@@ -1,4 +1,4 @@
-// Import the Random-class
+// Import required classes
 import java.util.Random;
 
 public class Teht3
