@@ -1,4 +1,4 @@
-// Import the Random-class
+// Import required classes
 import java.util.Random;
 
 public class Teht3
@@ -48,7 +48,7 @@ public class Teht3
     }
     else
     {
-      System.out.println("Algoritmi ei tällä kertaa onnistunut.");
+      System.out.println("Algoritmi ei t?ll? kertaa onnistunut.");
     }
   }
 }

@@ -8,18 +8,21 @@ public class Teht5
     // Try to create a scanner-object and catch potential exceptions
     try (Scanner reader = new Scanner(System.in))
     {
-      // Ask for and read three integers a, b and c
-      System.out.println("Please enter an integer (a).");
-      int a = reader.nextInt();
+      // Declare an array for the coefficients
+      int[] coef = new int[3];
       
-      System.out.println("Please enter an integer (b).");
-      int b = reader.nextInt();
+      // Print the description of the method
+      System.out.println("This method calculates the roots of a 2nd degree polynomial if it has 2 roots.");
       
-      System.out.println("Please enter an integer (c).");
-      int c = reader.nextInt();
+      // Ask for and read the coefficients
+      for (int idx = 0; idx < 3; idx++)
+      {
+        System.out.print("Please enter a value for (" + Character.toString((char) (97 + idx)) + "):");
+        coef[idx] = reader.nextInt();
+      }
       
       // Calculate the determinant
-      double det = b*b - 4*a*c;
+      double det = coef[1]*coef[1] - 4*coef[0]*coef[2];
       
       // If there are two roots, calculate them
       if (det > 0)
@@ -28,25 +31,26 @@ public class Teht5
         det = Math.sqrt(det);
         
         // Calculate the roots
-        double root1 = (-b + det)/(2*a);
-        double root2 = (-b - det)/(2*a);
+        double[] roots = {(-coef[1] + det)/(2*coef[0]), (-coef[1] - det)/(2*coef[0])};
         
-        System.out.println("Two roots exist, and they are:");
-        System.out.println("x_1 = " + root1);
-        System.out.println("x_2 = " + root2);
+        System.out.println("Two roots exist for the polynomial, and they are:");
+        System.out.println("x_1 = " + roots[0]);
+        System.out.println("x_2 = " + roots[1]);
       }
       else
       {
-        System.out.println("There are fewer than two roots.");
+        System.out.println("There are fewer than two roots for the polynomial.");
       }
     }
     catch (java.util.InputMismatchException e)
     {
       System.out.println("ERROR: The input must be an integer!");
+      e.printStackTrace();
     }
     catch (Exception e)
     {
       System.out.println("ERROR: Something went wrong! (" + e + ")");
+      e.printStackTrace();
     }
   }
 }

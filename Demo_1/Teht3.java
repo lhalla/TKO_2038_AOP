@@ -3,7 +3,7 @@ import java.util.Random;
 
 public class Teht3
 {
-  // Declare a global variable for the maximum of random numbers
+  // Declare a class variable for the maximum of random numbers
   static int SATUNNAISMAX = 15;
   
   public static void main(String[] q)
@@ -48,7 +48,7 @@ public class Teht3
     }
     else
     {
-      System.out.println("Algoritmi ei tällä kertaa onnistunut.");
+      System.out.println("Algoritmi ei t?ll? kertaa onnistunut.");
     }
   }
 }
