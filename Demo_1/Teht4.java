@@ -15,8 +15,8 @@ public class Teht4
       String email = reader.nextLine();
       
       // Define a regex pattern for finding the domain and find the matches with the entered address
-      Pattern SIMPLE_VALID_EMAIL_ADDRESS_PATTERN = Pattern.compile("^([^.@]+\\.)*[^.@]+@(([^.@]+\\.)+[^.@]+)$");
-      Matcher matcher = SIMPLE_VALID_EMAIL_ADDRESS_PATTERN.matcher(email);
+      Pattern SIMPLE_VALIDATION_PATTERN = Pattern.compile("^([^.@]+\\.)*[^.@]+@(([^.@]+\\.)+[^.@]+)$");
+      Matcher matcher = SIMPLE_VALIDATION_PATTERN.matcher(email);
       
       // Check if the entered address includes a domain and print the result
       if (matcher.find())
