@@ -24,14 +24,12 @@ public class Teht3
       int pituus = r.nextInt(4);
       
       // If the length of the string s is less than the generated length, append it with the variable i
-      System.out.print("i = " + i + ", L = " + s.length() + ", s = " + s + " | ");
       if(s.length() < pituus)
       {
         s += i;
       }
-      System.out.println("i = " + i + ", L = " + s.length() + ", s = " + s);
       
-      // Parses the current string s into an integer
+      // Parses the current string s into an integer. Produces an exception during the first iteration 25 % of the times run.
       int kokonaisluku = Integer.parseInt(s);
       
       // If the integer is divisible by 2, replace the string s with half of the parsed integer as a string
@@ -48,7 +46,7 @@ public class Teht3
     }
     else
     {
-      System.out.println("Algoritmi ei t?ll? kertaa onnistunut.");
+      System.out.println("Algoritmi ei talla kertaa onnistunut.");
     }
   }
 }

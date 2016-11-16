@@ -27,10 +27,12 @@ public class Teht2
     catch (java.util.InputMismatchException e)
     {
       System.out.println("ERROR: The input must be an integer!");
+      e.printStackTrace();
     }
     catch (Exception e)
     {
       System.out.println("ERROR: Something went wrong! (" + e + ")");
+      e.printStackTrace();
     }
   }
 }

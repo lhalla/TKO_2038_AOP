@@ -37,6 +37,7 @@ public class Teht4
     catch (Exception e)
     {
       System.out.println("ERROR: Something went wrong! (" + e + ")");
+      e.printStackTrace();
     }
   }
 }
