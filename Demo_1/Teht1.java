@@ -11,21 +11,21 @@ public class Teht1
       TreeSet<String> shorts = new TreeSet<>();
       shorts.add(args[0]);
       
-      // Initialise the hashmap for determining the plurality of the shortest strings
+      // Initialise the hashmap for determining the plurality of the shortest string(s)
       HashMap<Boolean, String> pluralMap = new HashMap<>();
       pluralMap.put(true, " strings are:");
       pluralMap.put(false, " string is:");
       
-      // Loop through the args to find the shortest string
+      // Loop through the args to find the shortest string(s)
       for (int i = 1; i < args.length; i++)
       {
-        // If a new shortest string is found, replace the shortest and the list with the candidate
+        // If a new shortest string is found, clear the list and add the new shortest
         if (args[i].length() < shorts.first().length())
         {
           shorts.clear();
           shorts.add(args[i]);
         }
-        // If a string with an equal length to the shortest is found, add it to the list
+        // If a string with an equal length to the shortest one is found, add it to the list
         else if (args[i].length() == shorts.first().length())
         {
           shorts.add(args[i]);
