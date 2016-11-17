@@ -8,7 +8,7 @@ public class Teht1
     try
     {
       // Initialise the list of shortest strings
-      List<String> shorts = new ArrayList<>();
+      TreeSet<String> shorts = new TreeSet<>();
       shorts.add(args[0]);
       
       // Initialise the hashmap for determining the plurality of the shortest strings
@@ -20,13 +20,13 @@ public class Teht1
       for (int i = 1; i < args.length; i++)
       {
         // If a new shortest string is found, replace the shortest and the list with the candidate
-        if (args[i].length() < shorts.get(0).length())
+        if (args[i].length() < shorts.first().length())
         {
           shorts.clear();
           shorts.add(args[i]);
         }
         // If a string with an equal length to the shortest is found, add it to the list
-        else if (args[i].length() == shorts.get(0).length())
+        else if (args[i].length() == shorts.first().length())
         {
           shorts.add(args[i]);
         }
