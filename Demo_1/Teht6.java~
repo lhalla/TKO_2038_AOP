@@ -25,6 +25,7 @@ public class Teht6
     catch (Exception e)
     {
       System.out.println("ERROR: Something went wrong! (" + e + ")");
+      e.printStackTrace();
     }
   }
 }

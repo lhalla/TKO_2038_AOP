@@ -1,5 +1,5 @@
 // Import required classes
-import java.util.Scanner;
+import java.util.*;
 
 public class Teht5
 {

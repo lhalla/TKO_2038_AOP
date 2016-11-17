@@ -1,6 +1,5 @@
 // Import required classes
-import java.util.Scanner;
-import java.util.HashMap;
+import java.util.*;
 
 public class Teht2
 {
@@ -17,11 +16,12 @@ public class Teht2
       int yearBirth = reader.nextInt();
       
       // Create and initialise a hashmap for age output
-      HashMap<Boolean, String> ageMap = new HashMap<Boolean, String>();
-      ageMap.put(true, " you will be over 18.");
-      ageMap.put(false, " you will be under 18.");
+      HashMap<Boolean, String> ageMap = new HashMap<>();
+      ageMap.put(false, "over");
+      ageMap.put(true, "under");
       
-      System.out.println("At the end of the year " + YEARCOMPARISON + ageMap.get((YEARCOMPARISON - yearBirth) >= 18));
+      // Print the result
+      System.out.println("At the end of the year " + YEARCOMPARISON + " you will be " + ageMap.get((YEARCOMPARISON - yearBirth) < 18) + " 18.");
     }
     catch (java.util.InputMismatchException e)
     {

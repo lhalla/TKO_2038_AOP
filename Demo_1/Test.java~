@@ -9,7 +9,7 @@ public class Test
   public static void main(String[] args)
   {
     // Define the number of runs
-    int nRuns = 1000000000;
+    int nRuns = 50000000;
     
     // Initialise the success counter and probability
     int counter = 0;
@@ -26,6 +26,7 @@ public class Test
     
     // Print the result
     System.out.println("The probability of the script to succeed is approx. " + 100*p + " %.");
+    System.out.println("The average number of runs to get a success is: " + Math.ceil(1/p));
   }
   
   public static int runTest()

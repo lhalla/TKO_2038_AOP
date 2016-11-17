@@ -17,7 +17,7 @@ public class Teht2
       int yearBirth = reader.nextInt();
       
       // Create and initialise a hashmap for age output
-      HashMap<Boolean, String> ageMap = new HashMap();
+      HashMap<Boolean, String> ageMap = new HashMap<Boolean, String>();
       ageMap.put(true, " you will be over 18.");
       ageMap.put(false, " you will be under 18.");
       
