@@ -11,21 +11,21 @@ public class Teht1
       TreeSet<String> shorts = new TreeSet<>();
       shorts.add(args[0]);
       
-      // Initialise the hashmap for determining the plurality of the shortest string(s)
+      // Initialise the hashmap for determining the plurality of the shortest strings
       HashMap<Boolean, String> pluralMap = new HashMap<>();
       pluralMap.put(true, " strings are:");
       pluralMap.put(false, " string is:");
       
-      // Loop through the args to find the shortest string(s)
+      // Loop through the args to find the shortest string
       for (int i = 1; i < args.length; i++)
       {
-        // If a new shortest string is found, clear the list and add the new shortest
+        // If a new shortest string is found, replace the shortest and the list with the candidate
         if (args[i].length() < shorts.first().length())
         {
           shorts.clear();
           shorts.add(args[i]);
         }
-        // If a string with an equal length to the shortest one is found, add it to the list
+        // If a string with an equal length to the shortest is found, add it to the list
         else if (args[i].length() == shorts.first().length())
         {
           shorts.add(args[i]);
@@ -38,8 +38,7 @@ public class Teht1
     }
     catch (java.lang.ArrayIndexOutOfBoundsException e)
     {
-      System.out.println("ERROR: At least one argument needed!");
-      e.printStackTrace();
+      System.out.println("ERROR: Insufficient amount of arguments. At least one argument required!");
     }
     catch (Exception e)
     {

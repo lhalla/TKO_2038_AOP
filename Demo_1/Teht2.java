@@ -25,8 +25,7 @@ public class Teht2
     }
     catch (java.util.InputMismatchException e)
     {
-      System.out.println("ERROR: The input must be an integer!");
-      e.printStackTrace();
+      System.out.println("ERROR: Invalid input type. The input must be an integer!");
     }
     catch (Exception e)
     {

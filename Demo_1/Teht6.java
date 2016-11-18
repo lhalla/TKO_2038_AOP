@@ -16,7 +16,7 @@ public class Teht6
       String b = reader.nextLine();
       
       // Create a modified version of A by replacing every occurrence of the string B in it with upper case characters
-      String aMod = a.replaceAll(b, b.toUpperCase());
+      String aMod = a.replace(b, b.toUpperCase());
       
       // Print the modified string A
       System.out.print("The string A, when all occurrences of B are in upper case, is: ");

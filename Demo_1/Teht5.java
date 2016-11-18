@@ -8,20 +8,17 @@ public class Teht5
     // Try to create a scanner-object and catch potential exceptions
     try (Scanner reader = new Scanner(System.in))
     {
-      // Declare the number of coefficients
-      int nCoef = 3;
-      
       // Declare an array for the coefficients
-      int[] coef = new int[nCoef];
+      int[] coef = new int[3];
       
       // Print the description of the method
-      System.out.println("This method calculates the roots of a 2nd degree polynomial if it has 2 roots.");
+      System.out.println("This method calculates the roots of a polynomial a*x^2 + b*x + c, if it has 2 roots.");
       
       // Ask for and read the coefficients
-      for (int idx = 0; idx < nCoef; idx++)
+      for (int idx = 0; idx < 3; idx++)
       {
         System.out.print("Please enter a value for (" + Character.toString((char) (97 + idx)) + "):");
-        coef[idx] = reader.nextInt();
+        coef[idx] = Integer.parseInt(reader.nextLine());
       }
       
       // Calculate the determinant
@@ -42,13 +39,12 @@ public class Teht5
       }
       else
       {
-        System.out.println("There are fewer than two roots for the polynomial.");
+        System.out.println("Fewer than two roots exist for the polynomial.");
       }
     }
-    catch (java.util.InputMismatchException e)
+    catch (java.util.InputMismatchException | java.lang.NumberFormatException e)
     {
-      System.out.println("ERROR: The input must be an integer!");
-      e.printStackTrace();
+      System.out.println("ERROR: Invalid input type. The input must be a single integer!");
     }
     catch (Exception e)
     {
