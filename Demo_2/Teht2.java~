@@ -1,0 +1,29 @@
+import java.util.*;
+
+public class Teht2
+{
+  public static void main(String[] args)
+  {
+    try (Scanner reader = new Scanner(System.in))
+    {
+      System.out.println("Please enter an input to be encrypted:");
+      String insecure = reader.nextLine();
+      String secure = "";
+      int charInt;
+      
+      for (int i = 0; i < insecure.length(); i++)
+      {
+        charInt = (int) insecure.charAt(i);
+        if (charInt > 64 && charInt < 91)       secure += (char) (65 + ((charInt - 64) % 26));
+        else if (charInt > 96 && charInt < 123) secure += (char) (97 + ((charInt - 96) % 26));
+        else                                    secure += insecure.charAt(i);
+      }
+      System.out.println("Encrypted output:");
+      System.out.println(secure);
+    }
+    catch (Exception e)
+    {
+      e.printStackTrace();
+    }
+  }
+}

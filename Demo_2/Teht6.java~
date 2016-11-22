@@ -1,0 +1,47 @@
+import java.util.*;
+
+public class Teht6 {
+  
+  public static void main(String[] args)
+  {
+    //================================================================================
+    // User input for a and b
+    //================================================================================
+    Scanner s = new Scanner(System.in);
+    System.out.println("Anna kaksi lukua:");
+    int a = s.nextInt();
+    
+    if (a < 0)
+    {
+      System.out.println("Luvun täytyy olla positiivinen. Anna uusi luku:");
+      a = s.nextInt();   
+    }
+    
+    System.out.println("Kiitos! Anna seuraava luku:");
+    int b = s.nextInt();
+    
+    //================================================================================
+    // Calculate square root of a
+    //================================================================================
+    System.out.println(Math.sqrt(a));
+    
+    System.out.println("----");
+    
+    //================================================================================
+    // Calculate greatest common denominator
+    //================================================================================
+    int temp;
+    
+    while (a > 0)
+    {
+      temp = a;
+      a = b % a;
+      b = temp;
+    }
+    
+    //================================================================================
+    // Print integers in the interval [b, 0]
+    //================================================================================
+    for (int i = b; i >= 0; i--) System.out.println(i);
+  }
+}

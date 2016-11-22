@@ -1,0 +1,36 @@
+import java.util.*;
+
+public class Teht4
+{
+  public static void main(String[] args)
+  {
+    try (Scanner reader = new Scanner(System.in))
+    {
+      System.out.println("Please enter a string:");
+      String inputString = reader.nextLine();
+      String outputString = "";
+      int idx;
+      
+      while (!inputString.isEmpty())
+      {
+        outputString += inputString.charAt(0);
+        inputString = inputString.substring(1);
+        
+        idx = inputString.indexOf(outputString.charAt(outputString.length() - 1));
+        
+        while (idx != -1)
+        {
+          outputString += inputString.charAt(idx);
+          inputString = inputString.substring(0, idx) + inputString.substring(idx + 1);
+          idx = inputString.indexOf(outputString.charAt(outputString.length() - 1));
+        }
+      }
+      System.out.println("The \"sorted\" output:");
+      System.out.println(outputString);
+    }
+    catch (Exception e)
+    {
+      e.printStackTrace();
+    }
+  }
+}

@@ -1,0 +1,52 @@
+// Import classes
+import java.util.*;
+
+public class Teht6
+{
+  public static void main(String[] args)
+  {
+    //======================================================================================
+    // REQUEST AND VALIDATE USER INPUT
+    //======================================================================================
+    
+    Scanner s = new Scanner(System.in);
+    System.out.println("Anna kaksi lukua:");
+    int a = s.nextInt();
+    
+    if (a < 0)
+    {
+      System.out.println("Luvun taytyy olla positiivinen. Anna uusi luku:");
+      a = s.nextInt();   
+    }
+    
+    System.out.println("Kiitos! Anna seuraava luku:");
+    int b = s.nextInt();
+    
+    //======================================================================================
+    // CALCULATE THE SQUARE ROOT OF A
+    //======================================================================================
+    
+    System.out.println(Math.sqrt(a));
+    
+    System.out.println("----");
+    
+    //======================================================================================
+    // CALCULATE THE GREATEST COMMON DIVISOR
+    //======================================================================================
+    
+    b = gcd(a, b);
+    
+    //======================================================================================
+    // PRINT INTEGERS IN THE INTERVAL [b, 0]
+    //======================================================================================
+    
+    for (int i = b; i >= 0; i--) System.out.println(i);
+  }
+  
+  // Method for determining the greatest common divisor
+  public static int gcd(int a, int b)
+  {
+    if (a == 0) return b;
+    return gcd(b % a, a);
+  }
+}
