@@ -1,0 +1,36 @@
+import java.util.*;
+
+public class Test
+{
+  public static void main(String[] args)
+  {
+    final int KYSYMYKSET = 5;
+    final int MAXPITUUS = 2;
+    final Random r = new Random();
+    
+    String merkit = "";
+    for(int kysymys=0; kysymys<KYSYMYKSET; kysymys = kysymys+1){
+      int pituus = 1+r.nextInt(MAXPITUUS);
+      for(int i=0; i<pituus; i = i+1) {
+        merkit += (char)(49+r.nextInt(90-49));
+      }
+      
+      int vastaus = 0;
+      int oikeaVastaus = 0;
+      for(int i = 0; i< merkit.length(); i = i+1){
+        vastaus = vastaus + merkkijonoLuvuksi(i, merkit);
+      }
+      
+      System.out.println(merkit + " = " + vastaus);
+    }
+    
+  }
+  
+  public class int merkkijonoLuvuksi(int i, String s)
+  {
+    int mult = (int) Math.pow(10, s.length() - 1 - i);
+    int unit = Integer.parseInt(s.substring(i,i+1));
+    
+    return unit*mult;
+  }
+}

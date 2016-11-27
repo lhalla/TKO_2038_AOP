@@ -24,7 +24,7 @@ public class Teht5
         
         String[] strings = new String[nStrings]; // Array of input strings
         String[] uniques = new String[nStrings]; // Array of strings of unique characters
-        String compString = "";                  // Temporary comparison string
+        int compIndex;                        // Temporary comparison string index
         
         //==================================================================================
         // REQUEST USER INPUT 2
@@ -50,12 +50,12 @@ public class Teht5
           // in them
           for (int j = 1; j < nStrings; j++)
           {
-            // Set the current string to use for comparison
-            compString = strings[(i + j) % nStrings];
+            // Set the index of the current string to use for comparison
+            compIndex = (i + j) % nStrings;
             
             // Iterate over the comparison string and remove characters from (i) that are
             // found in it
-            for (char c : compString.toCharArray())
+            for (char c : strings[compIndex].toCharArray())
               uniques[i] = uniques[i].replace(Character.toString(c),"");
           }
         }

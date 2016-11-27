@@ -3,6 +3,8 @@ import java.util.*;
 
 public class Teht2
 {
+  public final static int OFFSETMAX = 26;
+  
   public static void main(String[] args)
   {
     // Create a scanner
@@ -21,22 +23,21 @@ public class Teht2
       
       String secure = "";
       int charInt;
+      Random rnd = new Random();
+      int offset = 1 + rnd.nextInt(OFFSETMAX - 1);
       
       //====================================================================================
-      // PERFORM CAESAR ENCRYPTION
+      // PERFORM CAESAR CIPHER
       //====================================================================================
       
       // Iterate over the input string one character at a time
       for (char c : insecure.toCharArray())
       {
-        // Get the decimal representation of the ASCII character
-        charInt = (int) c;
-        
-        // If the character is alphabetical, change it to the next one (Z -> A), else keep
-        // it unchanged
-        if (charInt > 64 && charInt < 91)       secure += (char) (65 + ((charInt - 64) % 26));
-        else if (charInt > 96 && charInt < 123) secure += (char) (97 + ((charInt - 96) % 26));
-        else                                    secure += c;
+        // If the character is alphabetical, change it to the next one (Z -> A, z -> a),
+        // else keep it unchanged
+        if ('A' <= c && c <= 'Z')       secure += (char) (((c - 'A' + offset) % 26) + 'A');
+        else if ('a' <= c && c <= 'z')  secure += (char) (((c - 'a' + offset) % 26) + 'a');
+        else                            secure += c;
       }
       
       //====================================================================================
