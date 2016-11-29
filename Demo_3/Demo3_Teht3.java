@@ -1,7 +1,6 @@
 import java.util.Random;
 import java.util.Scanner;
 
-// Invalid class name (Demo3 -> Demo3_Teht3)
 public class Demo3_Teht3
 {
   

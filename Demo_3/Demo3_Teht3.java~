@@ -27,7 +27,7 @@ public class Demo3_Teht3
     
     if(merkkienMaara % 2 == 0)
     {
-      // !!! tuotaParillinenMerkkijono ei palauta mit??n !!!
+      // !!! tuotaParillinenMerkkijono ei palauta mitaan !!!
       tuotaParillinenMerkkijono(muodostettavaMerkkijono);
     }
     else
