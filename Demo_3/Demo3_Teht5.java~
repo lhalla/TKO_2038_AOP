@@ -1,0 +1,48 @@
+import java.util.*;
+
+public class Demo3_Teht5
+{
+  public static void main(String[] args)
+  {
+    // Create a scanner
+    try (Scanner reader = new Scanner(System.in))
+    {
+      System.out.println("Please enter a string:");
+      String input = reader.nextLine();
+      
+      Map<Character, Integer> charCount = new HashMap<>();
+      double nMod = 2;
+      
+      for (char c : input.toCharArray())
+      {
+        if (!charCount.containsKey(c))
+          charCount.put(c, 1);
+        else
+          charCount.put(c, charCount.get(c) + 1);
+      }
+      
+      printStars(input, charCount, nMod);
+    }
+    catch (Exception e)
+    {
+      e.printStackTrace();
+    }
+  }
+  
+  public static void printStars(String input, Map<Character, Integer> charCount, double nMod)
+  {
+    System.out.println(input.length());
+    
+    printStars(input.length(), nMod);
+    
+    for (char c : input.toCharArray()) printStars(charCount.get(c), nMod);
+    
+    printStars(input.length(), nMod);
+  }
+  
+  public static void printStars(int n, double nMod)
+  {
+    for (int i = 0; i < (int) (n*nMod); i++) System.out.print("*");
+    System.out.println("");
+  }
+}

@@ -1,0 +1,65 @@
+import java.util.*;
+
+public class Demo3_Teht6
+{
+  public static void main(String[] args)
+  {
+    try (Scanner reader = new Scanner(System.in))
+    {
+      String inputString = input(reader);
+      
+      System.out.println("The sum of the entered integers is: " + countSum(reader, countWords(inputString)));
+      
+      System.out.println("The input is " + isPalindrome(inputString, inputString.length()));
+    }
+    catch (Exception e)
+    {
+      e.printStackTrace();
+    }
+  }
+  
+  public static String input(Scanner reader)
+  {
+    System.out.println("Please enter a string:");
+    return reader.nextLine();
+  }
+  
+  public static int input(Scanner reader, int n)
+  {
+    System.out.println("Please enter an integer (" + n + " remaining):");
+    return reader.nextInt();
+  }
+  
+  public static int countWords(String input)
+  {
+    return input.split(" ").length;
+  }
+  
+  public static int countSum(Scanner reader, int n)
+  {
+    int sum = 0;
+    
+    while (n > 0)
+      sum += input(reader, n--);
+    
+    return sum;
+  }
+  
+  public static String isPalindrome(String input, int len)
+  {
+    input = input.replace(" ", "").toLowerCase();
+    
+    return checkPalindromity(input, input.length());
+  }
+  
+  public static String checkPalindromity(String input, int len)
+  {
+    for (int i = 0; i < len/2; i++)
+    {
+      if (input.charAt(i) != input.charAt(len - 1 - i))
+        return "not a palindrome.";
+    }
+    
+    return "a palindrome.";
+  }
+}

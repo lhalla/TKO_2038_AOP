@@ -1,0 +1,28 @@
+import java.util.*;
+
+public class Demo3_Teht4
+{
+  public static void main(String[] args)
+  {
+    // Create a scanner
+    try (Scanner reader = new Scanner(System.in, "UTF-8"))
+    {
+      System.out.println("Please enter a string:");
+      String input = reader.nextLine();
+      
+      System.out.println(input);
+      
+      System.out.println("The given string, without special characters, is:");
+      System.out.println(poistaErikoismerkit(input));
+    }
+    catch (Exception e)
+    {
+      e.printStackTrace();
+    }
+  }
+  
+  public static String poistaErikoismerkit(String mjono)
+  {
+    return mjono.replaceAll("[^A-ZÅÄÖa-zåäö0-9]", " ");
+  }
+}

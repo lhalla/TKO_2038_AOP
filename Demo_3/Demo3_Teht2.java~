@@ -1,0 +1,68 @@
+import java.util.*;
+
+public class Demo3_Teht2
+{
+  public static void main(String[] args)
+  {
+    // Create a scanner
+    try (Scanner reader = new Scanner(System.in))
+    {
+      int n, dN;
+      
+      System.out.println("Please enter the number of dice (N) or the number of dice and sides per die (NdS):");
+      String input = reader.nextLine();
+      
+      String[] NdS = input.split("d");
+      
+      if (NdS.length == 2)
+      {
+        System.out.println("Input format NdS detected. Parsing N...");
+        n = Integer.parseInt(NdS[0]);
+        
+        System.out.println("Parsing S...");
+        dN = Integer.parseInt(NdS[1]);
+      }
+      else
+      {
+        n = Integer.parseInt(NdS[0]);
+        
+        System.out.println("Please enter the number of sides per die:");
+        dN = Integer.parseInt(reader.nextLine());
+      }
+      
+      if (NdS.length == 2)
+      {
+        System.out.println(n + "d" + dN + " thrown. Result: " + heitaNoppaa(n, dN));
+      }
+      else if (n == 1)
+      {
+        System.out.println(n + " die with " + dN + " sides thrown. Result: " + heitaNoppaa(n, dN));
+      }
+      else
+      {
+        System.out.println(n + " dice with " + dN + " sides thrown. Result: " + heitaNoppaa(n, dN));
+      }
+    }
+    catch (java.lang.NumberFormatException e)
+    {
+      System.out.println("ERROR: Invalid input. The input must be a single integer!");
+    }
+    catch (Exception e)
+    {
+      e.printStackTrace();
+    }
+  }
+  
+  public static int heitaNoppaa(int n, int tahkot)
+  {
+    Random dice = new Random();
+    int total = 0;
+    
+    for (int i = 0; i < n; i++)
+    {
+      total += 1 + dice.nextInt(tahkot);
+    }
+    
+    return total;
+  }
+}

@@ -1,0 +1,39 @@
+import java.util.*;
+
+public class Demo3_Teht1
+{
+  public static void main(String[] args)
+  {
+    // Create a scanner
+    try (Scanner reader = new Scanner(System.in))
+    {
+      System.out.println("Please enter a string:");
+      String input = reader.nextLine();
+      
+      if (onkoPalindromi(input.replace(" ", "")))
+        System.out.println("The string input \"" + input + "\" is a palindrome.");
+      else
+      {
+        System.out.println("The string input \"" + input + "\" is not a palindrome.");
+      }
+    }
+    catch (Exception e)
+    {
+      e.printStackTrace();
+    }
+  }
+  
+  public static boolean onkoPalindromi(String mjono)
+  {
+    int l = mjono.length();
+    mjono = mjono.replace(" ", "").toLowerCase();
+    
+    for (int i = 0; i < l/2; i++)
+    {
+      if (mjono.charAt(i) != mjono.charAt(l - 1 - i))
+        return false;
+    }
+    
+    return true;
+  }
+}
