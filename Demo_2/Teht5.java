@@ -13,23 +13,23 @@ public class Teht5
       //====================================================================================
       
       System.out.print("Please enter the number of strings to be compared (> 1): ");
-      int nStrings = Integer.parseInt(reader.nextLine());
+      int n = Integer.parseInt(reader.nextLine());
       
       // If fewer than two strings are to be compared, throw an exception
-      if (nStrings > 1)
+      if (n > 1)
       {
         //==================================================================================
         // INITIALISE VARIABLES
         //==================================================================================
         
-        String[] strings = new String[nStrings]; // Array of input strings
+        String[] strings = new String[n]; // Array of input strings
         int compIndex;                        // Temporary comparison string index
         
         //==================================================================================
         // REQUEST USER INPUT 2
         //==================================================================================
         
-        for (int i = 0; i < nStrings; i++)
+        for (int i = 0; i < n; i++)
         {
           System.out.println("Please enter a string (" + (char)(65 + i) + "):");
           strings[i] = reader.nextLine();
@@ -43,14 +43,14 @@ public class Teht5
         String[] uniques = strings.clone();
         
         // Iterate through the strings and compare them with all the other strings
-        for (int i = 0; i < nStrings; i++)
+        for (int i = 0; i < n; i++)
         {
           // Iterate through all the strings to remove characters from string (i) that occur
           // in them
-          for (int j = 1; j < nStrings; j++)
+          for (int j = 1; j < n; j++)
           {
             // Set the index of the current string to use for comparison
-            compIndex = (i + j) % nStrings;
+            compIndex = (i + j) % n;
             
             // Iterate over the comparison string and remove characters from (i) that are
             // found in it
@@ -63,7 +63,7 @@ public class Teht5
         // PRINT THE STRING-SPECIFIC UNIQUE CHARACTER STRINGS
         //==================================================================================
         
-        for (int i = 0; i < nStrings; i++)
+        for (int i = 0; i < n; i++)
         {
           System.out.print("The characters unique to the string " + (char)(65 + i) + " are: ");
           System.out.println(unique(uniques[i]));

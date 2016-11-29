@@ -13,7 +13,7 @@ public class Teht6
     System.out.println("Anna kaksi lukua:");
     int a = s.nextInt();
     
-    if (a < 0)
+    while (a < 0)
     {
       System.out.println("Luvun taytyy olla positiivinen. Anna uusi luku:");
       a = s.nextInt();   
@@ -34,19 +34,19 @@ public class Teht6
     // CALCULATE THE GREATEST COMMON DIVISOR
     //======================================================================================
     
-    b = gcd(a, b);
+    int temp;
+    
+    while (a > 0)
+    {
+      temp = a;
+      a = b % a;
+      b = temp;
+    }
     
     //======================================================================================
-    // PRINT INTEGERS IN THE INTERVAL [b, 0]
+    // PRINT INTEGERS IN THE INTERVAL [gcd(a,b), 0]
     //======================================================================================
     
     for (int i = b; i >= 0; i--) System.out.println(i);
-  }
-  
-  // Method for determining the greatest common divisor
-  public static int gcd(int a, int b)
-  {
-    if (a == 0) return b;
-    return gcd(b % a, a);
   }
 }

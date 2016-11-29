@@ -23,7 +23,6 @@ public class Teht5
         //==================================================================================
         
         String[] strings = new String[nStrings]; // Array of input strings
-        String[] uniques = new String[nStrings]; // Array of strings of unique characters
         int compIndex;                        // Temporary comparison string index
         
         //==================================================================================
@@ -41,7 +40,7 @@ public class Teht5
         //==================================================================================
         
         // Set the input strings initially as the unique character strings
-        for (int i = 0; i < nStrings; i++) uniques[i] = strings[i];
+        String[] uniques = strings.clone();
         
         // Iterate through the strings and compare them with all the other strings
         for (int i = 0; i < nStrings; i++)

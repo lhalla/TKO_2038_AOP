@@ -57,6 +57,7 @@ public class Teht4
       //====================================================================================
       // PRINT THE "SORTED" STRING
       //====================================================================================
+
       System.out.println("The \"sorted\" output:");
       System.out.println(outputString);
     }
