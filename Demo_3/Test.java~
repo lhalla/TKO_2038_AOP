@@ -1,0 +1,119 @@
+import java.util.Random;
+
+public class Test
+{
+  public static void main(String[] args)
+  {
+    Random r = new Random();
+    System.out.println("Arvotaan viisi sarjaa:");
+    for (int i=0; i<5; i++)
+      testaa(r, i + 1);
+  }
+  
+  public static void tulosta(Noppa[] nopat){
+    int i = 0;
+    for (Noppa noppa : nopat){
+      System.out.print(noppa.annaArvo());
+      if (++i < 5){
+        System.out.print(",");
+      } else {
+        System.out.println();
+      }
+    }
+  }
+  
+  public static void testaa(Random r, int base){
+    Noppa[] nopat = new Noppa[5];
+    for (int i=0; i<5; i++){
+      //nopat[i] = new Noppa((base < 5) ? r.nextInt(3) + base : r.nextInt(2) + base); 
+      nopat[i] = new Noppa(r.nextInt(6)+1);
+    }
+    
+    boolean varmistus = onkoMokki(nopat);
+    int maara = 0;
+    
+    Noppa[] eioikein = new Noppa[]{new Noppa(1),new Noppa(2),new Noppa(3),new Noppa(4),new Noppa(5)};
+    Noppa[] oikein = new Noppa[]{new Noppa(1),new Noppa(1),new Noppa(2),new Noppa(2),new Noppa(2)};
+    
+    if(onkoMokki(oikein) == onkoMokki(eioikein)){
+      System.out.println("Metodisi tulostaa aina saman arvon: "+varmistus);
+      return;
+    }
+    
+    if(base%(r.nextInt(2)+1) == 0){
+      int t = r.nextInt(6)+1;
+      for(int i=0; i<3; i++){
+        nopat[i] = new Noppa(t);
+      }
+      t = r.nextInt(6)+1;
+      for(int i=0; i<2; i++){
+        nopat[3+i] = new Noppa(t);
+      }
+      
+      for(int i=0; i<nopat.length;i++){
+        int temp = r.nextInt(nopat.length);
+        Noppa n = nopat[i];
+        nopat[i] = nopat[temp];
+        nopat[temp] = n;
+      }
+    }
+    
+    System.out.println("Tulostetaan nopat...");
+    tulosta(nopat);
+    
+    if(onkoMokki(nopat)){
+      System.out.println("Mokki loytyi!");
+    }else{
+      System.out.println("Ei loytynyt :(");
+    }
+    System.out.println("");
+  }
+  
+  public static boolean onkoKolmeSamaa(Noppa[] nopat)
+  {
+    int[] arvot = new int[6];
+    
+    for (Noppa n : nopat)
+    {
+      arvot[n.annaArvo() - 1] += 1;
+      
+      if (arvot[n.annaArvo() - 1] > 2)  return true;
+    }
+    
+    return false;
+  }
+  
+  public static boolean onkoMokki(Noppa[] nopat)
+  {
+    int[] arvot = new int[6];
+    int parit = 0;
+    boolean kolmoset = false;
+    
+    for (Noppa n : nopat)
+    {
+      arvot[n.annaArvo() - 1] += 1;
+      
+      if (arvot[n.annaArvo() - 1] == 2) parit++;
+      if (arvot[n.annaArvo() - 1] == 3) kolmoset = true;
+    }
+    
+    if (parit > 1 && kolmoset) return true;
+    else return false;
+  }
+}
+  
+  class Noppa{
+    private int arvo;
+    
+    public Noppa(int arvo){
+      this.arvo = arvo;
+    }
+    
+    public void asetaArvo(int arvo){
+      this.arvo = arvo;
+    }
+    
+    public int annaArvo(){
+      return arvo;
+    }
+  }

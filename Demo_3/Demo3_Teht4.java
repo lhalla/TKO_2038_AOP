@@ -37,6 +37,6 @@ public class Demo3_Teht4
   {
     // Return the string with all non-alphanumerical characters replaced with
     // spaces
-    return mjono.replaceAll("[^A-ZÅÄÖa-zåäö0-9]", " ");
+    return mjono.replaceAll("[^A-Z???a-z???0-9]", " ");
   }
 }
