@@ -9,39 +9,25 @@ public class Demo3_Teht2
     try (Scanner reader = new Scanner(System.in))
     {
       //========================================================================
-      // USER INPUT
-      //========================================================================
-      
-      System.out.println("Please enter the No. of dice (N), or N and the No. of sides (S) in NdS format:");
-      String input = reader.nextLine();
-      
-      //========================================================================
       // INITIALISE VARIABLES
       //========================================================================
       
-      int n, dN;                       // number of dice, number of sides
-      String[] NdS = input.split("d"); // string array split from input
+      int n = 0, s = 0; // number of dice, number of sides
       
-      // If both n and dN were given in the first input, parse them. Otherwise
-      // ask for dN
-      if (NdS.length == 2)
+      //========================================================================
+      // USER INPUT
+      //========================================================================
+      
+      while (n < 1)
       {
-        // Parse n
-        System.out.println("Input format NdS detected.\nParsing N...");
-        n = Integer.parseInt(NdS[0]);
-        
-        // Parse dN
-        System.out.println("Parsing S...");
-        dN = Integer.parseInt(NdS[1]);
+        System.out.println("Please enter the No. of dice (N):");
+        n = Integer.parseInt(reader.nextLine());
       }
-      else
+      
+      while (s < 1)
       {
-        // Parse n
-        n = Integer.parseInt(NdS[0]);
-        
-        // Request and parse dN
-        System.out.println("Please enter the number of sides per die:");
-        dN = Integer.parseInt(reader.nextLine());
+        System.out.println("Please enter the No. of sides per die (S):");
+        s = Integer.parseInt(reader.nextLine());
       }
       
       //========================================================================
@@ -50,12 +36,10 @@ public class Demo3_Teht2
       
       // Print the results based on the input format and the number of dice
       // thrown
-      if (NdS.length == 2)
-        System.out.println(n + "d" + dN + " thrown. Result: " + heitaNoppaa(n, dN));
-      else if (n == 1)
-        System.out.println(n + " die with " + dN + " sides thrown. Result: " + heitaNoppaa(n, dN));
+      if (n < 2)
+        System.out.println(n + " die with " + s + " sides thrown. Result: " + heitaNoppaa(n, s));
       else
-        System.out.println(n + " dice with " + dN + " sides thrown. Result: " + heitaNoppaa(n, dN));
+        System.out.println(n + " dice with " + s + " sides thrown. Result: " + heitaNoppaa(n, s));
       
     }
     catch (java.lang.NumberFormatException e)

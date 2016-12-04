@@ -23,7 +23,7 @@ public class Demo3_Teht5
       Map<Character, Integer> charCount = new HashMap<>();
       
       // Initialise the print modifier
-      double nMod = 2;
+      double nMod = 1;
       
       //========================================================================
       // COUNT THE CHARACTERS
