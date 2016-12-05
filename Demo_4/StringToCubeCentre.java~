@@ -1,0 +1,11 @@
+package Demo_4;
+// Exercise 6
+
+// Import classes
+
+public class StringToCubeCentre
+{
+  public static void main(String[] args)
+  {
+  }
+}
