@@ -11,7 +11,7 @@ public class TwoRandomArrays
   // integer value
   public static final int MINARRAYSIZE = 3;
   public static final int MAXARRAYSIZE = 16;
-  public static final int MAXRANDOMINT = 1000;
+  public static final int MAXRANDOMINT = 50;
   
   public static void main(String[] args)
   {
@@ -60,7 +60,7 @@ public class TwoRandomArrays
     for (int i = 0; i < arr.length; i++)
     {
       // Generate a random integer
-      rndInt = rnd.nextInt(MAXRANDOMINT);
+      rndInt = 2*rnd.nextInt(MAXRANDOMINT);
       
       // If the random integer is not divisible by 4, inser it into the array
       if (rndInt % 4 != 0)

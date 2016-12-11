@@ -63,7 +63,7 @@ public class ArrayModification
     }
     catch (java.lang.NumberFormatException e)
     {
-      System.out.println("ERROR: Invalid input. The input must be an integer!");
+      System.out.println("ERROR: Invalid input. The inputs must be integers separated by space!");
     }
     catch (Exception e)
     {

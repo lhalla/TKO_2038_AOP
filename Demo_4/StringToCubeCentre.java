@@ -37,14 +37,17 @@ public class StringToCubeCentre
       // INSERT THE STRING INSIDE THE ARRAY
       //========================================================================
       
-      int result = insertString(charArray, dims, input);
+      char[][][] tempArray = insertString(charArray, dims, input);
       
-      if (result == 1)
-        System.out.println("String insertion failed: The array was not a cube.");
-      else if (result == 2)
-        System.out.println("String insertion failed: The string was too long to fit in the array.");
+      if (Arrays.equals(charArray, tempArray))
+      {
+        System.out.println("No string inserted. The given array was not a cube, or the string was too long.");
+      }
       else
+      {
+        charArray = tempArray;
         System.out.println("The string was successfully stored in the array.");
+      }
       
     }
     catch (java.util.InputMismatchException e)
@@ -63,19 +66,28 @@ public class StringToCubeCentre
    * @param dim: The dimensions of the array
    * @param str: The string
    */
-  private static int insertString(char[][][] arr, int[] dim, String str)
+  private static char[][][] insertString(char[][][] arr, int[] dim, String str)
   {
+    
     // Make sure the array is cubic
-    if (!(dim[0] == dim[1] && dim[1] == dim[2])) return 1;
+    if (!(dim[0] == dim[1] && dim[1] == dim[2])) return arr;
     
     // Make sure the string can fit inside the array
     int strLen = str.length();
-    if (strLen > dim[0] && strLen > dim[1] && strLen > dim[2]) return 2;
+    if (strLen > dim[0]) return arr;
+    
+    // Clone the array
+    char[][][] arrCopy = new char[dim[0]][dim[1]][dim[2]];
+    for (int i = 0; i < dim[0]; i++)
+    {
+      for (int j = 0; j < dim[1]; j++)
+        arrCopy[i][j] = arr[i][j].clone();
+    }
     
     // Place the string in the middle along the x-axis
     for (int i = 0; i < strLen; i++)
-      arr[(dim[0] - strLen)/2 + i][dim[1]/2][dim[2]/2] = str.charAt(i);
+      arrCopy[(dim[0] - strLen)/2 + i][dim[1]/2][dim[2]/2] = str.charAt(i);
     
-    return 0;
+    return arrCopy;
   }
 }
